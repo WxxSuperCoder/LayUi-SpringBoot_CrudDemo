@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:height="http://www.w3.org/1999/xhtml" xmlns:border-left="http://www.w3.org/1999/xhtml"
+      xmlns:border-top="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!--引入css样式文件-->
+    <link rel="stylesheet" href="/css/index.css" charset="UTF-8"/>
+    <!--引入layui的核心css文件-->
+    <link rel="stylesheet" type="text/css" href="/layui-v2.5.7/layui/css/layui.css">
+    <!--引入layui的核心js文件(采用模块化引入)-->
+    <script src="/layui-v2.5.7/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <!--从云端引入JQuery的js文件-->
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <title>融安特管理系统</title>
+</head>
+<body>
+<!--——————————————————————————————————————————————————————————————————————————————————-->
+    <table id="table" width="100%">
+        <tr id="head" align="left">
+            <td>
+                <!--布局容器—标题栏-->
+                <div class="header">
+
+                </div>
+            </td>
+        </tr>
+<!--——————————————————————————————————————————————————————————————————————————————————-->
+        <tr align="left">
+            <td>
+                <div>
+                    <!--导航栏-->
+                    <ul class="layui-nav" id="nav">
+                        <li class="layui-nav-item FirPage"><a href="#">首页</a></li>
+                        <li class="layui-nav-item OrgStru"><a href="#">组织架构</a></li>
+                        <li class="layui-nav-item PerInfo"><a href="#">个人信息</a></li>
+                        <li class="layui-nav-item SysSet"><a href="#">系统设置</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="">退出</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+<!--——————————————————————————————————————————————————————————————————————————————————-->
+    <!--iframe局部刷新-->
+        <iframe id="iframe_org">
+
+        </iframe>
+<!--——————————————————————————————————————————————————————————————————————————————————-->
+<!--引入外部JS文件-->
+<script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

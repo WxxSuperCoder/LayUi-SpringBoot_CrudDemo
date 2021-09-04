@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--首先解析namespace：命名空间，此属性通常用来映射Dao层接口-->
+<mapper namespace="com.pk.demo.dao.UserDao">
+    <!--id：对应Mapper层接口方法名，要执行的sql语法的唯一标识，Mybatis会使用这个id的值来找到要执行的sql语句
+       parameterType：执行输入参数类型
+       resultType：表示结果类型，是sql语句执行后得到ResultSet，遍历这个ResultSet得到java对象的类型。
+                   值写的类型的全限定名称
+    -->
+
+    <select id="selectEmployees" resultType="com.pk.demo.entity.User">
+        select * from soft_dev
+    </select>
+
+    <insert id="addEmpl">
+         insert into soft_dev (name,sex,age,phone,depart,ent_time) values(#{name},#{sex},#{age},#{phone},#{depart},#{ent_time})
+    </insert>
+
+    <delete id="delete">
+        delete from soft_dev where id=#{id}
+    </delete>
+
+    <select id="getById" resultType="com.pk.demo.entity.User">
+        select * from soft_dev where id=#{id}
+    </select>
+
+    <update id="update">
+        update soft_dev set name=#{name},sex=#{sex},age=#{age},phone=#{phone},depart=#{depart},ent_time=#{ent_time} where id=#{id}
+    </update>
+
+    <select id="condition" resultType="com.pk.demo.entity.User">
+        select * from soft_dev where 1=1
+<if test="name!=null and name!=''">
+    and name like concat('%',#{name},'%')
+</if>
+<if test="sex!=null and sex!=''">
+    and sex=#{sex}
+</if>
+<if test="phone!=null and phone!=''">
+    and phone like concat('%',#{phone},'%')
+</if>
+<if test="depart!=null and depart!=''">
+    and depart=#{depart}
+</if>
+<if test="ent_time!=null and ent_time!=''">
+    <![CDATA[ and soft_dev.ent_time >= #{ent_time}]]>
+</if>
+
+<if test="smallAge!=null and smallAge!='' and bigAge!=null and bigAge!=''">
+    and age between #{smallAge} and #{bigAge}
+</if>
+    </select>
+</mapper>

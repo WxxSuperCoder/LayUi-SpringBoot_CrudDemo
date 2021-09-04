@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/addEmpl.css">
+    <!--引入layui的核心css文件-->
+    <link rel="stylesheet" type="text/css" href="/layui-v2.5.7/layui/css/layui.css">
+    <!--引入layui的核心js文件(采用模块化引入)-->
+    <script src="/layui-v2.5.7/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <!--从云端引入JQuery的js文件-->
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <title>添加员工</title>
+</head>
+<body>
+<div class="layui-container" id="form">
+    <form class="layui-form" method="post" action="add">
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-block">
+                <input th:value="${user.name}" type="text"  id="empName" placeholder="员工姓名" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-block">
+                <input type="radio" id="sexMan" name="empSex" value="男" title="男" th:checked="${user.sex}==男">
+                <input type="radio" id="sexWom" name="empSex" value="女" title="女" th:checked="${user.sex}==女">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">年龄</label>
+            <div class="layui-input-block">
+                <input type="text" th:value="${user.age}" id="empAge" placeholder="员工年龄" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系方式</label>
+            <div class="layui-input-block">
+                <input type="text" th:value="${user.phone}" id="empPhone" placeholder="请输入手机号" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">部门</label>
+            <div class="layui-input-block">
+                <select id="empDept">
+                    <option value=""></option>
+                    <option th:selected="${user.depart}=='软件研发部'" value="软件研发部">软件研发部</option>
+                    <option th:selected="${user.depart}=='交付实施部'" value="交付实施部">交付实施部</option>
+                    <option th:selected="${user.depart}=='售后服务部'" value="售后服务部">售后服务部</option>
+                    <option th:selected="${user.depart}=='行政部'" value="行政部">行政部</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">入职时间</label>
+            <div class="layui-input-block">
+                <input type="text" th:value="${user.ent_time}" id="hireDate" placeholder="年-月-日" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" type="button" id="addemp-btn" lay-submit lay-filter="addEmp">修改</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<input id="id" type="hidden" th:value="${user.id}">
+<script type="text/javascript" src="/js/edit.js"></script>
+</body>
+</html>

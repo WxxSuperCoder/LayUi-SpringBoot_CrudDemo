@@ -1,0 +1,17 @@
+/*设置【标题栏】*/
+.header {
+    background-color:#1e76ff;
+    height: 60px;
+}
+
+/*设置【局部刷新】*/
+#iframe_org {
+    height: 500px;
+    width: 100%;
+}
+
+/*
+!*设置【导航栏】*!
+#nav {
+
+}*/

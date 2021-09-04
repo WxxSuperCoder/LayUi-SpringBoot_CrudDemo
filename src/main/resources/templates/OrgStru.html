@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/index.css" charset="UTF-8"/>
+    <!--引入layui的核心css文件-->
+    <link rel="stylesheet" type="text/css" href="/layui-v2.5.7/layui/css/layui.css">
+    <!--引入layui的核心js文件(采用模块化引入)-->
+    <script src="/layui-v2.5.7/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <!--从云端引入JQuery的js文件-->
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="/js/jquery-3.6.0.js"></script>
+    <title>组织架构</title>
+</head>
+<body>
+    <table align="left" id="org_table" width="100%" >
+        <tr>
+            <td>
+                <table align="left" height="500"  width="25%">
+                    <tr>
+                        <td>
+                            <div align="left" id="OrgTree"></div>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        <td>
+            <table id="tableData"  height="500" width="100%" bgcolor="cornflowerblue" style="display: table">
+                <tr>
+                    <td>
+                        <button type="button" class="layui-btn" id="addEmpl">添加</button>
+                        <!--<button type="button" class="layui-btn" id="delEmpl">删除</button>
+                        <button type="button" class="layui-btn" id="edit">编辑</button>
+                        <button type="button" class="layui-btn" onclick="find()" id="select">查询</button>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="aqua">
+                        <span>姓名</span><input type="text" id="name" class="layui-text" placeholder="姓名">
+                        <span>性别</span><input type="text" id="sex" class="layui-text" placeholder="性别">
+                        <span>手机号</span><input type="text" id="phone" class="layui-text" placeholder="手机号">
+                        <!--<span>部门</span><input type="text" id="depart" class="layui-text" placeholder="部门">-->
+                        <span>部门</span>
+                        <select id="depart">
+                            <option value=""></option>
+                            <option value="软件研发部">软件研发部</option>
+                            <option value="交付实施部">交付实施部</option>
+                            <option value="售后服务部">售后服务部</option>
+                            <option value="行政部">行政部</option>
+                        </select>
+                        <span>入职时间</span><input type="text" id="ent_time" class="layui-text" placeholder="入职时间">
+                        <span>最小年龄</span><input type="text" id="smallAge" class="layui-text" placeholder="最小年龄">
+                        <span>最大年龄</span><input type="text" id="bigAge" class="layui-text" placeholder="最大年龄">
+                        <button type="button" class="layui-btn" onclick="find()" id="pageSelect">查寻</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#00ffff">
+                        <table id="data"  lay-filter="test"></table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <tr>
+<!--——————————————————————————————————————————————————————————————————————————————————-->
+        <tr height="30" bgcolor="#00ced1">
+            <td>
+
+            </td>
+        </tr>
+    </table>
+<!--——————————————————————————————————————————————————————————————————————————————————-->
+<script type="text/javascript" src="/js/OrgStru.js"></script>
+</body>
+</html>
